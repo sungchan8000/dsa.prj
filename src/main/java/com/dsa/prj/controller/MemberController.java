@@ -7,17 +7,10 @@ import com.dsa.prj.dto.MemberDTO;
 import com.dsa.prj.service.MemberService;
 import com.dsa.prj.vo.MemberFindParams;
 import com.dsa.prj.vo.MemberJoinParams;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("/member")
@@ -29,7 +22,6 @@ public class MemberController {
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }
-
 
     /**
      * 가입된 멤버 전체 조회한다
