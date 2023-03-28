@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: dsa-prj
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/o_dsa
+    username: u_dsa
+    password: a1234567
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
