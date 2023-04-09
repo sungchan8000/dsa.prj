@@ -1,0 +1,26 @@
+version: "3"
+services:
+  database:
+    image: mysql
+    container_name: dsa_mysql
+    environment:
+      MYSQL_DATABASE: o_dsa
+      MYSQL_ROOT_PASSWORD: a1234567
+      TZ: Asia/Seoul
+    volumes:
+      - ./sql-init.d/:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    restart: always
+  application:
+      build: .
+      container_name: dsa_web
+      environment:
+        SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/o_dsa
+        SPRING_DATASOURCE_USERNAME: u_dsa
+        SPRING_DATASOURCE_PASSWORD: a1234567
+      ports:
+        - "8080:8080"
+      depends_on:
+        - database
+      restart: always
